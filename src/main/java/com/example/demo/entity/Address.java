@@ -17,7 +17,15 @@ public class Address {
 	@OneToOne(mappedBy ="address")
 	User user;
 	
+	@OneToOne(mappedBy = "address")
+	Company company;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getHouse() {
 		return house;
 	}

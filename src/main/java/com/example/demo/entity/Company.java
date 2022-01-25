@@ -1,9 +1,11 @@
 package com.example.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,6 +18,18 @@ public class Company {
 	
 	@OneToOne(mappedBy ="company")
 	User user;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="company_address_id", referencedColumnName = "id")
+	Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public String getCompanyname() {
 		return companyname;
