@@ -17,8 +17,6 @@ public class Address {
 	@OneToOne(mappedBy ="address")
 	User user;
 	
-	@OneToOne(mappedBy = "address")
-	Company company;
 	
 	public String getHouse() {
 		return house;
